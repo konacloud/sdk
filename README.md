@@ -247,15 +247,19 @@ Take a photo with the camera and send to a KONA backet storage.
 	KonaBucket.getInstance().loadImage("http://host",imageView);
 ```
 
-# JS
+# JS (Jquery)
 
-we recommend to use jquery.
+We recommend to use jquery.
+
+```
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+```
 
 Below are examples of post and gets
 
-## POST a model
+## POST
 
-Model example
+For this model example
 
 ![ScreenShot](http://i.imgur.com/SRcAHrul.png)
 
@@ -278,3 +282,56 @@ $.ajax
 })
 ```
 
+## GET
+
+```
+$.getJSON( "http://localhost:8080/KONAConsole/api/taio/testt/mr_User", function( data ) {
+    if (!data.success){
+      console.log("some error happend " + data.msg);
+    }else{
+        console.log(data.data);
+    }
+});
+```
+
+### Simple working example
+
+```
+<html>
+<head>
+<title>KONA jQuery Hello World</title>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+var URL = "http://app.konacloud.io/api/taio/samples/mr_User"
+var obj = {
+  name: "myName",
+  email: "myEmail@company.com"
+}
+$.ajax
+    ({
+        type: "POST",
+        url: URL,
+        dataType: 'json',
+        data: JSON.stringify(obj),
+        success: function (data) {
+          console.log(data);
+        }
+})
+$.getJSON( URL, function( data ) {
+    if (!data.success){
+      console.log("some error happend " + data.msg);
+    }else{
+        console.log(data.data);
+    }
+});
+
+</script>
+This is Hello World by KONA Cloud Jquery Example - Just press F5 to insert and get
+View the console for results
+</body>
+</html>
+
+```
