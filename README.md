@@ -1,7 +1,3 @@
-Mobile SDK
-===
-
-
 #Android SDK
 
 ## Download
@@ -27,34 +23,34 @@ None
 ### HTTP GET
 
 ```
-      KonaRequest request = new KonaRequest() {
-			{
-				this.url = "http://app.konacloud.io/...";
-				this.method = HTTPMethod.GET;
-				this.accessToken = "5b7...";
-			}
+KonaRequest request = new KonaRequest() {
+{
+	this.url = "http://app.konacloud.io/...";
+	this.method = HTTPMethod.GET;
+	this.accessToken = "5b7...";
+}
 
-			@Override
-			public void onSuccess(String jsonObject) {
-				//do something on success
-			}
+@Override
+public void onSuccess(String jsonObject) {
+	//do something on success
+}
 
-			@Override
-			public void onFailure(KonaResponse res) {
-				//do something on failure
-				Toast.makeText(getActivity(), res.getMsg(), Toast.LENGTH_LONG).show();
-			}
-		};
-		request.make();
+@Override
+public void onFailure(KonaResponse res) {
+	//do something on failure
+	Toast.makeText(getActivity(), res.getMsg(), Toast.LENGTH_LONG).show();
+}
+};
+request.make();
 ```
 
 ### HTTP POST
 
 ```
-      final JSONObject json = new JSONObject();
-		  json.put("name", "kona");
+      		final JSONObject json = new JSONObject();
+		json.put("name", "kona");
 
-		  KonaRequest request = new KonaRequest() {
+		KonaRequest request = new KonaRequest() {
 			{
 				this.url = "http://app.konacloud.io/..";
 				this.method = HTTPMethod.POST;
@@ -78,10 +74,10 @@ None
 ### HTTP PUT
 
 ```
-      final JSONObject json = new JSONObject();
-		  json.put("name", "kona");
+      		final JSONObject json = new JSONObject();
+		json.put("name", "kona");
 
-		  KonaRequest request = new KonaRequest() {
+		KonaRequest request = new KonaRequest() {
 			{
 				this.url = "http://app.konacloud.io/..";
 				this.method = HTTPMethod.PUT;
@@ -105,7 +101,7 @@ None
 #### HTTP Delete
 
 ```
-      KonaRequest request = new KonaRequest() {
+      		KonaRequest request = new KonaRequest() {
 			{
 				this.url = "http://app.konacloud.io/..";
 				this.method = HTTPMethod.DELETE;
@@ -151,7 +147,7 @@ obj.setName("Kona");
 
 final String json = gson.toJson(obj);
 
-KonaRequest request = new KonaRequest() {
+		KonaRequest request = new KonaRequest() {
 			{
 				this.url = "http://app.konacloud.io/..";
 				this.method = HTTPMethod.POST;
