@@ -21,8 +21,9 @@ for converting Pojos into Strings we recomend to use Gson https://code.google.co
 
 AndroidManigest.xml
 
+```
 <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-
+```
 
 ## Uses
 
