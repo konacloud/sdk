@@ -361,10 +361,9 @@ We recommend to use this Jquery plugin
 
 https://github.com/blueimp/jQuery-File-Upload
 
-![ScreenShot](http://postimg.org/image/xwryild7v/)
+See the gif example
 
-
-
+http://postimg.org/image/xwryild7v/
 
 ### Simple usage
 
