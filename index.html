@@ -158,10 +158,61 @@
 </code></pre>
 
 <h3>
+<a name="gson-integration" class="anchor" href="#gson-integration"><span class="octicon octicon-link"></span></a>GSON Integration</h3>
+
+<p>Download <a href="https://code.google.com/p/google-gson/downloads/list">https://code.google.com/p/google-gson/downloads/list</a></p>
+
+<h4>
+<a name="instanciate-the-gson-object" class="anchor" href="#instanciate-the-gson-object"><span class="octicon octicon-link"></span></a>Instanciate the Gson object</h4>
+
+<pre><code>Gson gson = new Gson();
+</code></pre>
+
+<h4>
+<a name="tostring" class="anchor" href="#tostring"><span class="octicon octicon-link"></span></a>ToString();</h4>
+
+<pre><code>MyPojo obj = new MyPojo();
+String json = gson.toJson(obj);
+</code></pre>
+
+<h4>
+<a name="post-example" class="anchor" href="#post-example"><span class="octicon octicon-link"></span></a>POST Example</h4>
+
+<pre><code>    Gson gson = new Gson();
+
+    MyPojo obj = new MyPojo();
+    obj.setName("Kona");
+
+    final String json = gson.toJson(obj);
+
+    KonaRequest request = new KonaRequest() {
+    {
+        this.url = "http://app.konacloud.io/..";
+        this.method = HTTPMethod.POST;
+        this.data = json;
+        this.accessToken = "5b7fb5bd..";
+    }
+
+    @Override
+    public void onSuccess(String jsonObject) {
+
+    }
+
+    @Override
+    public void onFailure(KonaResponse res) {
+
+    }
+    };
+    request.make();
+</code></pre>
+
+<h3>
 <a name="buckets" class="anchor" href="#buckets"><span class="octicon octicon-link"></span></a>Buckets</h3>
 
 <h4>
 <a name="post-a-file" class="anchor" href="#post-a-file"><span class="octicon octicon-link"></span></a>Post a FILE</h4>
+
+<p>Take a photo with the camera and send to a KONA backet storage.</p>
 
 <pre><code>
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -208,55 +259,6 @@
 <a name="load-a-file-in-imageview" class="anchor" href="#load-a-file-in-imageview"><span class="octicon octicon-link"></span></a>Load a File in ImageView</h4>
 
 <pre><code>    KonaBucket.getInstance().loadImage("http://host",imageView);
-</code></pre>
-
-<h2>
-<a name="gson-integration" class="anchor" href="#gson-integration"><span class="octicon octicon-link"></span></a>GSON Integration</h2>
-
-<p>Download <a href="https://code.google.com/p/google-gson/downloads/list">https://code.google.com/p/google-gson/downloads/list</a></p>
-
-<h3>
-<a name="instanciate-the-gson-object" class="anchor" href="#instanciate-the-gson-object"><span class="octicon octicon-link"></span></a>Instanciate the Gson object</h3>
-
-<pre><code>Gson gson = new Gson();
-</code></pre>
-
-<h3>
-<a name="tostring" class="anchor" href="#tostring"><span class="octicon octicon-link"></span></a>ToString();</h3>
-
-<pre><code>MyPojo obj = new MyPojo();
-String json = gson.toJson(obj);
-</code></pre>
-
-<h3>
-<a name="post-example" class="anchor" href="#post-example"><span class="octicon octicon-link"></span></a>POST Example</h3>
-
-<pre><code>    Gson gson = new Gson();
-
-    MyPojo obj = new MyPojo();
-    obj.setName("Kona");
-
-    final String json = gson.toJson(obj);
-
-    KonaRequest request = new KonaRequest() {
-    {
-        this.url = "http://app.konacloud.io/..";
-        this.method = HTTPMethod.POST;
-        this.data = json;
-        this.accessToken = "5b7fb5bd..";
-    }
-
-    @Override
-    public void onSuccess(String jsonObject) {
-
-    }
-
-    @Override
-    public void onFailure(KonaResponse res) {
-
-    }
-    };
-    request.make();
 </code></pre>
       </section>
       <footer>
