@@ -12,7 +12,7 @@ Just add the project as a library
 
 No dependencies
 
-But we recomen to use Gson https://code.google.com/p/google-gson/ for converting Pojos into Stirngs
+We recomend to use Gson https://code.google.com/p/google-gson/ for converting Pojos into Strings
 
 ## Configuration
 
