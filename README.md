@@ -174,6 +174,22 @@ String json = gson.toJson(obj);
 
 #### Post a FILE
 
+```
+	KonaCallBack callback = new KonaCallBack() {
+
+					@Override
+					public void receive(String url) {
+						Log.v(this.getClass().toString(), "url: " + url);
+					}
+				};
+				KonaBucket
+						.getInstance()
+						.uploadImage(
+								"http://bucket.konacloud.io/external/api/bucket/taio/hello/b1",
+								byte_arr, callback);
+```								
+#### Example
+
 Take a photo with the camera and send to a KONA backet storage.
 
 ```
