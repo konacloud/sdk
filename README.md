@@ -121,6 +121,55 @@ None
 	request.make();
 ```
 
+
+
+### GSON Integration
+
+Download https://code.google.com/p/google-gson/downloads/list
+
+#### Instanciate the Gson object
+```
+Gson gson = new Gson();
+```
+
+#### ToString();
+
+```
+MyPojo obj = new MyPojo();
+String json = gson.toJson(obj);
+```
+
+#### POST Example
+
+```
+	Gson gson = new Gson();
+	
+	MyPojo obj = new MyPojo();
+	obj.setName("Kona");
+	
+	final String json = gson.toJson(obj);
+	
+	KonaRequest request = new KonaRequest() {
+	{
+		this.url = "http://app.konacloud.io/..";
+		this.method = HTTPMethod.POST;
+		this.data = json;
+		this.accessToken = "5b7fb5bd..";
+	}
+	
+	@Override
+	public void onSuccess(String jsonObject) {
+		
+	}
+	
+	@Override
+	public void onFailure(KonaResponse res) {
+	
+	}
+	};
+	request.make();
+```
+
 ### Buckets
 
 #### Post a FILE
@@ -172,51 +221,3 @@ None
 ```
 	KonaBucket.getInstance().loadImage("http://host",imageView);
 ```
-
-## GSON Integration
-
-Download https://code.google.com/p/google-gson/downloads/list
-
-### Instanciate the Gson object
-```
-Gson gson = new Gson();
-```
-
-### ToString();
-
-```
-MyPojo obj = new MyPojo();
-String json = gson.toJson(obj);
-```
-
-### POST Example
-
-```
-	Gson gson = new Gson();
-	
-	MyPojo obj = new MyPojo();
-	obj.setName("Kona");
-	
-	final String json = gson.toJson(obj);
-	
-	KonaRequest request = new KonaRequest() {
-	{
-		this.url = "http://app.konacloud.io/..";
-		this.method = HTTPMethod.POST;
-		this.data = json;
-		this.accessToken = "5b7fb5bd..";
-	}
-	
-	@Override
-	public void onSuccess(String jsonObject) {
-		
-	}
-	
-	@Override
-	public void onFailure(KonaResponse res) {
-	
-	}
-	};
-	request.make();
-```
-
