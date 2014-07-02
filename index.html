@@ -1,40 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="KONA SDK&#39;s : KONA, SDK" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>KONA SDK&#39;s by konacloud</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>KONA SDK&#39;s</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1>KONA SDK&#39;s</h1>
+        <p>KONA, SDK</p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/konacloud/sdk">View on GitHub</a>
+        <p class="view"><a href="https://github.com/konacloud/sdk">View the Project on GitHub <small>konacloud/sdk</small></a></p>
 
-          <h1 id="project_title">KONA SDK&#39;s</h1>
-          <h2 id="project_tagline">KONA, SDK</h2>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/konacloud/sdk/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/konacloud/sdk/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+        <ul>
+          <li><a href="https://github.com/konacloud/sdk/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/konacloud/sdk/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/konacloud/sdk">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
         <h1>
-<a name="mobile-sdk" class="anchor" href="#mobile-sdk"><span class="octicon octicon-link"></span></a>Mobile SDK</h1>
-
-<h1>
 <a name="android-sdk" class="anchor" href="#android-sdk"><span class="octicon octicon-link"></span></a>Android SDK</h1>
 
 <h2>
@@ -65,102 +59,102 @@
 <h3>
 <a name="http-get" class="anchor" href="#http-get"><span class="octicon octicon-link"></span></a>HTTP GET</h3>
 
-<pre><code>      KonaRequest request = new KonaRequest() {
-            {
-                this.url = "http://app.konacloud.io/...";
-                this.method = HTTPMethod.GET;
-                this.accessToken = "5b7...";
-            }
+<pre><code>    KonaRequest request = new KonaRequest() {
+    {
+        this.url = "http://app.konacloud.io/...";
+        this.method = HTTPMethod.GET;
+        this.accessToken = "5b7...";
+    }
 
-            @Override
-            public void onSuccess(String jsonObject) {
-                //do something on success
-            }
+    @Override
+    public void onSuccess(String jsonObject) {
+        //do something on success
+    }
 
-            @Override
-            public void onFailure(KonaResponse res) {
-                //do something on failure
-                Toast.makeText(getActivity(), res.getMsg(), Toast.LENGTH_LONG).show();
-            }
-        };
-        request.make();
+    @Override
+    public void onFailure(KonaResponse res) {
+        //do something on failure
+        Toast.makeText(getActivity(), res.getMsg(), Toast.LENGTH_LONG).show();
+    }
+    };
+    request.make();
 </code></pre>
 
 <h3>
 <a name="http-post" class="anchor" href="#http-post"><span class="octicon octicon-link"></span></a>HTTP POST</h3>
 
-<pre><code>      final JSONObject json = new JSONObject();
-          json.put("name", "kona");
+<pre><code>    final JSONObject json = new JSONObject();
+    json.put("name", "kona");
 
-          KonaRequest request = new KonaRequest() {
-            {
-                this.url = "http://app.konacloud.io/..";
-                this.method = HTTPMethod.POST;
-                this.data = json.toString();
-                this.accessToken = "5b7fb5bd..";
-            }
+    KonaRequest request = new KonaRequest() {
+    {
+        this.url = "http://app.konacloud.io/..";
+        this.method = HTTPMethod.POST;
+        this.data = json.toString();
+        this.accessToken = "5b7fb5bd..";
+    }
 
-            @Override
-            public void onSuccess(String jsonObject) {
+    @Override
+    public void onSuccess(String jsonObject) {
 
-            }
+    }
 
-            @Override
-            public void onFailure(KonaResponse res) {
+    @Override
+    public void onFailure(KonaResponse res) {
 
-            }
-        };
-        request.make();
+    }
+    };
+    request.make();
 </code></pre>
 
 <h3>
 <a name="http-put" class="anchor" href="#http-put"><span class="octicon octicon-link"></span></a>HTTP PUT</h3>
 
-<pre><code>      final JSONObject json = new JSONObject();
-          json.put("name", "kona");
+<pre><code>    final JSONObject json = new JSONObject();
+    json.put("name", "kona");
 
-          KonaRequest request = new KonaRequest() {
-            {
-                this.url = "http://app.konacloud.io/..";
-                this.method = HTTPMethod.PUT;
-                this.data = json.toString();
-                this.accessToken = "5b7fb...";
-            }
+    KonaRequest request = new KonaRequest() {
+    {
+        this.url = "http://app.konacloud.io/..";
+        this.method = HTTPMethod.PUT;
+        this.data = json.toString();
+        this.accessToken = "5b7fb...";
+    }
 
-            @Override
-            public void onSuccess(String jsonObject) {
+    @Override
+    public void onSuccess(String jsonObject) {
 
-            }
+    }
 
-            @Override
-            public void onFailure(KonaResponse res) {
+    @Override
+    public void onFailure(KonaResponse res) {
 
-            }
-        };
-        request.make();
+    }
+    };
+    request.make();
 </code></pre>
 
 <h4>
 <a name="http-delete" class="anchor" href="#http-delete"><span class="octicon octicon-link"></span></a>HTTP Delete</h4>
 
-<pre><code>      KonaRequest request = new KonaRequest() {
-            {
-                this.url = "http://app.konacloud.io/..";
-                this.method = HTTPMethod.DELETE;
-                this.accessToken = "5b7fb5bd..";
-            }
+<pre><code>    KonaRequest request = new KonaRequest() {
+    {
+        this.url = "http://app.konacloud.io/..";
+        this.method = HTTPMethod.DELETE;
+        this.accessToken = "5b7fb5bd..";
+    }
 
-            @Override
-            public void onSuccess(String jsonObject) {
+    @Override
+    public void onSuccess(String jsonObject) {
 
-            }
+    }
 
-            @Override
-            public void onFailure(KonaResponse res) {
+    @Override
+    public void onFailure(KonaResponse res) {
 
-            }
-        };
-        request.make();
+    }
+    };
+    request.make();
 </code></pre>
 
 <h2>
@@ -184,45 +178,40 @@ String json = gson.toJson(obj);
 <h3>
 <a name="post-example" class="anchor" href="#post-example"><span class="octicon octicon-link"></span></a>POST Example</h3>
 
-<pre><code>Gson gson = new Gson();
+<pre><code>    Gson gson = new Gson();
 
-MyPojo obj = new MyPojo();
-obj.setName("Kona");
+    MyPojo obj = new MyPojo();
+    obj.setName("Kona");
 
-final String json = gson.toJson(obj);
+    final String json = gson.toJson(obj);
 
-KonaRequest request = new KonaRequest() {
-            {
-                this.url = "http://app.konacloud.io/..";
-                this.method = HTTPMethod.POST;
-                this.data = json;
-                this.accessToken = "5b7fb5bd..";
-            }
+    KonaRequest request = new KonaRequest() {
+    {
+        this.url = "http://app.konacloud.io/..";
+        this.method = HTTPMethod.POST;
+        this.data = json;
+        this.accessToken = "5b7fb5bd..";
+    }
 
-            @Override
-            public void onSuccess(String jsonObject) {
+    @Override
+    public void onSuccess(String jsonObject) {
 
-            }
+    }
 
-            @Override
-            public void onFailure(KonaResponse res) {
+    @Override
+    public void onFailure(KonaResponse res) {
 
-            }
-        };
-        request.make();
+    }
+    };
+    request.make();
 </code></pre>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">KONA SDK&#39;s maintained by <a href="https://github.com/konacloud">konacloud</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/konacloud">konacloud</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-
+    <script src="javascripts/scale.fix.js"></script>
     
-
   </body>
 </html>
