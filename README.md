@@ -338,4 +338,19 @@ View the console for results
 
 ## X-AUTH-TOKEN
 
-
+```
+$.ajax
+    ({
+        type: "POST",
+         beforeSend: function (request)
+         {
+                request.setRequestHeader("X-AUTH-TOKEN", "e0899540-f8f4-40e7-a1f8-d18f4bf521e4");
+         }
+        url: URL,
+        dataType: 'json',
+        data: JSON.stringify(obj),
+        success: function (data) {
+          console.log(data);
+        }
+})
+```
