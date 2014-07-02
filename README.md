@@ -121,7 +121,7 @@ None
 	request.make();
 ```
 
-### Buuckets
+### Buckets
 
 #### Post a FILE
 
