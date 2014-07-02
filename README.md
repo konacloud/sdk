@@ -121,6 +121,58 @@ None
 	request.make();
 ```
 
+### Buuckets
+
+#### Post a FILE
+
+```
+
+	static final int REQUEST_IMAGE_CAPTURE = 1;
+
+	private void dispatchTakePictureIntent() {
+		Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+			startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+		}
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+			Bundle extras = data.getExtras();
+			Bitmap imageBitmap = (Bitmap) extras.get("data");
+			// mImageView.setImageBitmap(imageBitmap);
+			ByteArrayOutputStream stream = new ByteArrayOutputStream();
+			imageBitmap.compress(Bitmap.CompressFormat.JPEG, 30, stream);
+			byte[] byte_arr = stream.toByteArray();
+
+			try {
+
+				KonaCallBack callback = new KonaCallBack() {
+
+					@Override
+					public void receive(String url) {
+						Log.v(this.getClass().toString(), "url: " + url);
+					}
+				};
+				KonaBucket
+						.getInstance()
+						.uploadImage(
+								"http://bucket.konacloud.io/external/api/bucket/taio/hello/b1",
+								byte_arr, callback);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+```
+
+#### Load a File in ImageView
+
+```
+	KonaBucket.getInstance().loadImage("http://host",imageView);
+```
+
 ## GSON Integration
 
 Download https://code.google.com/p/google-gson/downloads/list
@@ -167,3 +219,4 @@ String json = gson.toJson(obj);
 	};
 	request.make();
 ```
+
