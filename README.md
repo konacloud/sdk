@@ -10,13 +10,19 @@ Just add the project as a library
 
 ## Dependencies
 
-No dependencies
+No dependencies for restClient
 
-We recomend to use Gson https://code.google.com/p/google-gson/ for converting Pojos into Strings
+If you use buckets add this apache http mime
+http://repo1.maven.org/maven2/org/apache/httpcomponents/httpmime/4.2.1/httpmime-4.2.1.jar
+
+for converting Pojos into Strings we recomend to use Gson https://code.google.com/p/google-gson/
 
 ## Configuration
 
-None
+AndroidManigest.xml
+
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
 
 ## Uses
 
