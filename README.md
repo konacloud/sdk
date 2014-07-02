@@ -125,7 +125,7 @@ None
 
 Download https://code.google.com/p/google-gson/downloads/list
 
-### Instancite the Gson object
+### Instanciate the Gson object
 ```
 Gson gson = new Gson();
 ```
