@@ -174,6 +174,8 @@ String json = gson.toJson(obj);
 
 #### Post a FILE
 
+Take a photo with the camera and send to a KONA backet storage.
+
 ```
 
 	static final int REQUEST_IMAGE_CAPTURE = 1;
