@@ -285,7 +285,7 @@ $.ajax
 ## GET
 
 ```
-$.getJSON( "http://localhost:8080/KONAConsole/api/taio/testt/mr_User", function( data ) {
+$.getJSON( "http://app.konacloud.io/user/app/modelId", function( data ) {
     if (!data.success){
       console.log("some error happend " + data.msg);
     }else{
@@ -335,3 +335,7 @@ View the console for results
 </html>
 
 ```
+
+## X-AUTH-TOKEN
+
+
