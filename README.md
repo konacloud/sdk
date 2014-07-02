@@ -246,3 +246,35 @@ Take a photo with the camera and send to a KONA backet storage.
 ```
 	KonaBucket.getInstance().loadImage("http://host",imageView);
 ```
+
+# JS
+
+we recommend to use jquery.
+
+Below are examples of post and gets
+
+## POST a model
+
+Model example
+
+![ScreenShot](http://i.imgur.com/SRcAHrul.png)
+
+
+```
+var obj = {
+  name: "myName",
+  email: "myEmail@company.com"
+}
+
+$.ajax
+    ({
+        type: "POST",
+        url: 'http://app.konacloud.io/user/app/modelId',
+        dataType: 'json',
+        data: JSON.stringify(obj),
+        success: function (data) {
+          console.log(data);
+        }
+})
+```
+
