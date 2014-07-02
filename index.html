@@ -212,6 +212,23 @@ String json = gson.toJson(obj);
 <h4>
 <a name="post-a-file" class="anchor" href="#post-a-file"><span class="octicon octicon-link"></span></a>Post a FILE</h4>
 
+<pre><code>    KonaCallBack callback = new KonaCallBack() {
+
+                    @Override
+                    public void receive(String url) {
+                        Log.v(this.getClass().toString(), "url: " + url);
+                    }
+                };
+                KonaBucket
+                        .getInstance()
+                        .uploadImage(
+                                "http://bucket.konacloud.io/external/api/bucket/taio/hello/b1",
+                                byte_arr, callback);
+</code></pre>
+
+<h4>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h4>
+
 <p>Take a photo with the camera and send to a KONA backet storage.</p>
 
 <pre><code>
