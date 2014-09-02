@@ -8,6 +8,8 @@ import org.kona.andorid.HTTPMethod;
 import org.kona.andorid.KonaRequest;
 import org.kona.andorid.KonaResponse;
 
+import android.widget.Toast;
+
 public class KonaRequestTest extends TestCase {
 
 	@Test
@@ -28,6 +30,7 @@ public class KonaRequestTest extends TestCase {
 			@Override
 			public void onFailure(KonaResponse res) {
 				assertEquals(false, true);
+				
 			}
 		};
 		request.make();
