@@ -3,6 +3,7 @@
  */
 package org.kona.andorid.buckets;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -46,10 +47,34 @@ public class KonaBucket {
 		void receive(String url);
 	}
 
+	public static int COMPRESS_RATIO = 30;
+
 	public void uploadImage(String url, byte[] bytes, KonaCallBack callback)
 			throws ClientProtocolException, IOException {
 
 		asyncRequest(url, bytes, callback);
+	}
+
+	public void uploadImage(String url, String bytes, KonaCallBack callback)
+			throws ClientProtocolException, IOException {
+
+		BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+
+		Bitmap bitmap = BitmapFactory.decodeFile(url, options);
+		ByteArrayOutputStream stream = new ByteArrayOutputStream();
+		bitmap.compress(Bitmap.CompressFormat.JPEG, COMPRESS_RATIO, stream);
+		byte[] byte_arr = stream.toByteArray();
+		asyncRequest(url, byte_arr, callback);
+	}
+
+	public void uploadImage(String url, Bitmap bytes, KonaCallBack callback)
+			throws ClientProtocolException, IOException {
+		
+		ByteArrayOutputStream stream = new ByteArrayOutputStream();
+		bytes.compress(Bitmap.CompressFormat.JPEG, COMPRESS_RATIO, stream);
+		byte[] byte_arr = stream.toByteArray();
+		asyncRequest(url, byte_arr, callback);
 	}
 
 	public void asyncRequest(final String url, final byte[] bytes,

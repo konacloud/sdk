@@ -20,8 +20,10 @@ public abstract class KonaRequest {
 	private static final String URL_EMPTY = "URL Malformed";
 	private static final String SUCCESS = "success";
 	protected static final String NULL_RESPONSE = "null response form the server";
-	private static final String LOG_TAG = null;
+	private static final String LOG_TAG = "KonaRequest";
 	private static final String X_ACCESS_TOKEN = "X-AUTH-TOKEN";
+
+	public static boolean getallJson = false;
 
 	protected String url;
 	protected HTTPMethod method;
@@ -67,7 +69,7 @@ public abstract class KonaRequest {
 			}
 
 			protected void onPostExecute(KonaResponse result) {
-				if (result.isSuccess()) {
+				if (result != null && result.isSuccess()) {
 					onSuccess(result.getData());
 				} else {
 					onFailure(result);
@@ -182,14 +184,27 @@ public abstract class KonaRequest {
 
 		safeLog("Response " + response);
 
-		
-		JSONObject jsonObject = new JSONObject(response);
 		KonaResponse res = new KonaResponse();
 		res.setCode(execute.getStatusLine().getStatusCode());
 
+		if (getallJson) {
+
+			if (res.getCode() == 200) {
+				res.setSuccess(true);
+			} else {
+				res.setSuccess(false);
+			}
+			res.setData(response);
+			return res;
+		}
+
+		JSONObject jsonObject = new JSONObject(response);
+
 		if (res.getCode() == 200 && jsonObject.getBoolean(SUCCESS)) {
 			res.setSuccess(true);
+
 			res.setData(jsonObject.getString("data"));
+
 		} else {
 			Log.e(LOG_TAG, "Error: " + res.getMsg());
 
